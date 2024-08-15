@@ -1,0 +1,52 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+!include ICONURL/devicons/angular.puml
+!include ICONURL/devicons/dotnet.puml
+!include ICONURL/devicons/javascript_badge.puml
+!include ICONURL/devicons/redis.puml
+!include ICONURL/devicons/postgresql.puml
+!include ICONURL/devicons/windows.puml
+!include ICONURL/devicons/java.puml
+!include ICONURL/font-awesome/cogs.puml
+
+!define DEVICONS2 https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2
+!include DEVICONS2/amazonwebservices_original.puml
+
+!define MATERIAL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/material
+!include MATERIAL/apps.puml
+
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+!include FONTAWESOME/users.puml
+!include <office/Servers/database_server>
+!include <office/Servers/file_server>
+
+UpdateElementStyle("container", $shape=RoundedBoxShape())
+UpdateElementStyle("system", $shape=RoundedBoxShape())
+UpdateElementStyle("person", $shape=RoundedBoxShape())
+
+AddPersonTag("user", $legendText="пользователь")
+AddPersonTag("actor_ext", $legendText="внешний актор", $bgColor="#bcbcbc", $borderColor="#bcbcbc")
+AddRelTag(msg, $legendText="поток данных")
+UpdateSystemBoundaryStyle($type="subsystem", $legendText="граница подсистемы")
+UpdateBoundaryStyle($type="module", $legendText="граница модуля")
+
+AddSystemTag(sys, $legendText="подсистема", $sprite="cogs", $bgColor="#0b5394", $borderColor="#0b5394")
+AddSystemTag(sys_todo, $legendText="подсистема (to do)", $sprite="cogs", $bgColor="#6fa8dc", $borderColor="#6fa8dc")
+AddSystemTag(sys_ext, $legendText="внешняя подсистема", $sprite="cogs", $bgColor="#bcbcbc", $borderColor="#bcbcbc")
+
+AddContainerTag(module, $legendText="модуль", $sprite="dotnet", $bgColor="#0b5394", $borderColor="#0b5394")
+AddContainerTag(module_todo, $legendText="модуль (to do)", $sprite="dotnet", $bgColor="#6fa8dc", $borderColor="#6fa8dc")
+AddContainerTag(component, $legendText="компонент", $bgColor="#0b5394", $borderColor="#0b5394")
+AddContainerTag(component_ext, $legendText="внешний компонент", $bgColor="#bcbcbc", $borderColor="#bcbcbc")
+AddContainerTag(component_todo, $legendText="компонент (to do)", $bgColor="#6fa8dc", $borderColor="#6fa8dc")
+
+AddContainerTag(broker, $legendText="менеджер очередей", $bgColor="#0b5394", $borderColor="#ffffff")
+AddContainerTag(broker_todo, $legendText="менеджер очередей (to do)", $bgColor="#6fa8dc", $borderColor="#ffffff")
+AddContainerTag(fs, $sprite="file_server", $legendText="файловое хранилище", $bgColor="#0b5394", $borderColor="#ffffff")
+AddContainerTag(fs_todo, $sprite="file_server", $legendText="файловое хранилище (to do)", $bgColor="#6fa8dc", $borderColor="#ffffff")
+AddContainerTag(db, $sprite="database_server", $legendText="база данных", $bgColor="#0b5394", $borderColor="#ffffff")
+AddContainerTag(db_todo, $sprite="database_server", $legendText="база данных (to do)", $bgColor="#6fa8dc", $borderColor="#ffffff")
+@enduml
